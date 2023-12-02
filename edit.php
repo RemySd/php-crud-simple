@@ -5,6 +5,11 @@ require_once './database.php';
 $database = getDatabase();
 
 $productId = empty($_GET['id']) ? null : $_GET['id'];
+
+if (empty($productId)) {
+    header('Location: ./index.php');
+}
+
 $product = null;
 
 if ($productId) {
